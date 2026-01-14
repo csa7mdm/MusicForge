@@ -1,0 +1,186 @@
+# MusicForge .gitignore
+
+# =============================================================================
+# .NET / C#
+# =============================================================================
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.mdb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.cache
+project.lock.json
+project.fragment.lock.json
+artifacts/
+.vs/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter
+.ipynb_checkpoints
+
+# =============================================================================
+# IDEs
+# =============================================================================
+# JetBrains (Rider, PyCharm)
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Visual Studio
+*.suo
+*.user
+*.dbmdl
+*.jfm
+.vs/
+
+# =============================================================================
+# macOS
+# =============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# =============================================================================
+# Docker
+# =============================================================================
+# Don't ignore docker-compose.yml
+# Ignore local overrides
+docker-compose.override.yml
+docker-compose.local.yml
+
+# =============================================================================
+# AI Models (Large files)
+# =============================================================================
+*.pt
+*.pth
+*.onnx
+*.safetensors
+models/
+.cache/
+huggingface/
+
+# =============================================================================
+# Audio Files (Generated)
+# =============================================================================
+output/
+*.wav
+*.mp3
+*.flac
+*.ogg
+!tests/**/*.wav
+
+# =============================================================================
+# Environment & Secrets
+# =============================================================================
+.env
+.env.local
+.env.*.local
+*.local.json
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# =============================================================================
+# Database
+# =============================================================================
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+data/
+
+# =============================================================================
+# Logs
+# =============================================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =============================================================================
+# Testing
+# =============================================================================
+TestResults/
+coverage/
+*.trx
+*.coverage
+*.coveragexml
+
+# =============================================================================
+# Misc
+# =============================================================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+Thumbs.db

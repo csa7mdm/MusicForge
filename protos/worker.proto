@@ -1,0 +1,90 @@
+syntax = "proto3";
+package musicforge.worker;
+option csharp_namespace = "MusicForge.Infrastructure.Grpc";
+
+// Music generation worker service
+service MusicWorker {
+  // Generate music theory elements (chords, structure, MIDI)
+  rpc GenerateTheory(TheoryRequest) returns (TheoryResponse);
+  
+  // Synthesize instrumental audio with streaming response
+  rpc SynthesizeAudio(AudioRequest) returns (stream AudioChunk);
+  
+  // Synthesize vocal audio with streaming response
+  rpc SynthesizeVocals(VocalRequest) returns (stream AudioChunk);
+  
+  // Separate audio into stems (drums, bass, vocals, other)
+  rpc SeparateStems(StemRequest) returns (StemResponse);
+  
+  // Check worker health and GPU status
+  rpc HealthCheck(Empty) returns (HealthResponse);
+}
+
+message TheoryRequest {
+  string genre = 1;
+  string mood = 2;
+  int32 tempo_bpm = 3;
+  string key = 4;
+  string mode = 5;
+  int32 duration_seconds = 6;
+  repeated string style_tags = 7;
+}
+
+message TheoryResponse {
+  repeated string chord_progression = 1;
+  repeated Section sections = 2;
+  bytes midi_data = 3;
+}
+
+message Section {
+  string name = 1;
+  int32 start_bar = 2;
+  int32 duration_bars = 3;
+  float energy_level = 4;
+  repeated string elements = 5;
+}
+
+message AudioRequest {
+  string prompt = 1;
+  int32 duration_seconds = 2;
+  string genre = 3;
+  float energy_level = 4;
+  bytes conditioning_audio = 5;
+  string section_name = 6;
+}
+
+message AudioChunk {
+  bytes audio_data = 1;
+  int32 sample_rate = 2;
+  bool is_final = 3;
+  float progress = 4;
+}
+
+message VocalRequest {
+  string lyrics = 1;
+  string voice_type = 2;
+  string style = 3;
+  int32 target_duration_ms = 4;
+}
+
+message StemRequest {
+  bytes audio_data = 1;
+  int32 sample_rate = 2;
+}
+
+message StemResponse {
+  bytes drums = 1;
+  bytes bass = 2;
+  bytes vocals = 3;
+  bytes other = 4;
+  int32 sample_rate = 5;
+}
+
+message Empty {}
+
+message HealthResponse {
+  string status = 1;
+  bool gpu_available = 2;
+  int64 gpu_memory_bytes = 3;
+  repeated string models_loaded = 4;
+}

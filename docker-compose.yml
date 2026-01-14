@@ -1,0 +1,62 @@
+services:
+  api:
+    image: musicforge-api
+    build:
+      context: .
+      dockerfile: src/MusicForge.Api/Dockerfile
+    ports:
+      - "5001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Data Source=/data/MusicForge.db
+      - MusicWorker__Address=http://worker:50051
+      - LlmProvider__DefaultProvider=Groq
+      - LlmProvider__GroqApiKey=${GROQ_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./data:/data
+    depends_on:
+      - worker
+    networks:
+      - musicforge-net
+
+  worker:
+    image: musicforge-worker
+    build:
+      context: .
+      dockerfile: workers/python/Dockerfile
+    ports:
+      - "50051:50051"
+    environment:
+      - PORT=50051
+      # NVIDIA GPU support requires checking host capabilities
+      # fallback to CPU if not available
+      # deploy:
+      #   resources:
+      #     reservations:
+      #       devices:
+      #         - driver: nvidia
+      #           count: 1
+      #           capabilities: [ gpu ]
+    networks:
+      - musicforge-net
+
+  # Optional Ollama service for local LLM
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - musicforge-net
+    profiles:
+      - llm
+
+volumes:
+  ollama_data:
+
+
+networks:
+  musicforge-net:
+    driver: bridge

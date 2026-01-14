@@ -1,0 +1,41 @@
+ID,Type,Description,Definition of Done,Dependencies,Priority,Status
+MF-001,Setup,Create .NET 9 solution with Clean Architecture projects,MusicForge.sln created + dotnet build succeeds,,P0,Todo
+MF-002,Setup,Create Domain project structure,Project compiles with folders for Entities/ValueObjects/Enums/Events,MF-001,P0,Todo
+MF-003,Feature,Implement domain enums (Genre/Mood/Status/ComponentType),Enums defined with XML docs,MF-002,P0,Todo
+MF-004,Feature,Implement value objects (MusicalKey/TimeSignature/ChordProgression/BpmTempo),Value objects with validation + tests pass,MF-003,P0,Todo
+MF-005,Feature,Implement Section entity,Entity with properties + factory method,MF-004,P0,Todo
+MF-006,Feature,Implement Arrangement entity,Entity with sections collection,MF-005,P0,Todo
+MF-007,Feature,Implement Stem entity,Entity with audio metadata,MF-004,P0,Todo
+MF-008,Feature,Implement SongSpecification value object,Full specification with all musical parameters,MF-004,P0,Todo
+MF-009,Feature,Implement AgentContext value object,Context with focus checkpoints + history,MF-004,P0,Todo
+MF-010,Feature,Implement Project aggregate root,Aggregate with all relationships + domain methods,MF-005;MF-006;MF-007;MF-008;MF-009,P0,Todo
+MF-011,Feature,Implement domain events,Events for project lifecycle,MF-010,P0,Todo
+MF-012,Test,Write Domain layer unit tests,>80% coverage + all tests pass,MF-011,P0,Todo
+MF-013,Setup,Create Application project with CQRS structure,Project compiles with Commands/Queries/Services folders,MF-001,P0,Todo
+MF-014,Feature,Implement CQRS commands (Create/Generate/Iterate/Export),Commands defined as records,MF-013,P0,Todo
+MF-015,Feature,Implement agent state machine interface,Interface with state transitions defined,MF-013,P0,Todo
+MF-016,Feature,Implement core service interfaces (Parser/Planner/Orchestrator),Interfaces defined with XML docs,MF-013,P0,Todo
+MF-017,Feature,Implement worker client interface,IMusicWorkerClient with async streaming methods,MF-013,P0,Todo
+MF-018,Test,Write Application layer unit tests,Tests for handlers with mocks,MF-017,P1,Todo
+MF-019,Setup,Create Infrastructure project,Project compiles with Grpc/Llm/Persistence folders,MF-001,P0,Todo
+MF-020,Feature,Create gRPC proto file,worker.proto with all message types,MF-019,P0,Todo
+MF-021,Feature,Generate C# gRPC client from proto,Generated code compiles successfully,MF-020,P0,Todo
+MF-022,Feature,Implement GrpcMusicWorkerClient,Client implements IMusicWorkerClient with streaming,MF-017;MF-021,P0,Todo
+MF-023,Feature,Implement ILlmClient abstraction,Interface + Ollama/Groq implementations,MF-019,P1,Todo
+MF-024,Feature,Implement IProjectRepository + SQLite,Repository with EF Core SQLite,MF-010;MF-019,P0,Todo
+MF-025,Setup,Create API project,ASP.NET Core Minimal API project compiles,MF-001,P0,Todo
+MF-026,Feature,Implement Minimal API endpoints,All endpoints defined + return correct types,MF-014;MF-025,P0,Todo
+MF-027,Feature,Implement SignalR GenerationHub,Hub with subscription + push methods,MF-025,P1,Todo
+MF-028,Setup,Create CLI project,System.CommandLine project compiles,MF-001,P1,Todo
+MF-029,Feature,Implement CLI commands (create/generate/list/export),CLI commands execute with proper output,MF-014;MF-028,P1,Todo
+MF-030,Setup,Create Python worker project structure,pyproject.toml + requirements + folder structure,MF-020,P0,Todo
+MF-031,Feature,Implement TheoryEngine (music21 + mingus),Generates chord progressions + MIDI,MF-030,P0,Todo
+MF-032,Feature,Implement AudioSynthesizer (AudioCraft),MusicGen generates audio with streaming,MF-030,P0,Todo
+MF-033,Feature,Implement VocalSynthesizer (Bark),Bark generates vocals from lyrics,MF-030,P1,Todo
+MF-034,Feature,Implement StemSeparator (Demucs),Demucs separates audio into stems,MF-030,P1,Todo
+MF-035,Feature,Implement Python gRPC server,Server handles all RPC methods,MF-020;MF-031;MF-032,P0,Todo
+MF-036,Test,Write Python component tests,Tests pass for all components,MF-035,P1,Todo
+MF-037,Setup,Create docker-compose.yml,All services defined + compose up works,MF-025;MF-035,P0,Todo
+MF-038,Test,Write integration tests,End-to-end flow tests pass,MF-037,P1,Todo
+MF-039,Docs,Create README.md,User-facing docs with setup + usage,MF-037,P0,Todo
+MF-040,Feature,Implement AgentOrchestrator,Full orchestration with state machine + workers,MF-015;MF-022;MF-023,P0,Todo
