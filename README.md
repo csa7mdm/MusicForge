@@ -99,7 +99,7 @@ MusicForge is an AI-powered music production platform that transforms natural la
 ### 1. Clone & Configure
 
 ```bash
-git clone https://github.com/your-username/MusicForge.git
+git clone https://github.com/csa7mdm/MusicForge.git
 cd MusicForge
 
 # Set your API key
@@ -320,9 +320,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📊 Stats
 
-![GitHub stars](https://img.shields.io/github/stars/your-username/MusicForge?style=social)
-![GitHub forks](https://img.shields.io/github/forks/your-username/MusicForge?style=social)
-![GitHub issues](https://img.shields.io/github/issues/your-username/MusicForge)
+![GitHub stars](https://img.shields.io/github/stars/csa7mdm/MusicForge?style=social)
+![GitHub forks](https://img.shields.io/github/forks/csa7mdm/MusicForge?style=social)
+![GitHub issues](https://img.shields.io/github/issues/csa7mdm/MusicForge)
 
 ---
 
@@ -334,5 +334,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   <a href="#-quick-start">Quick Start</a> •
   <a href="#-api-reference">API Docs</a> •
   <a href="#-contributing">Contributing</a> •
-  <a href="https://github.com/your-username/MusicForge/issues">Issues</a>
+  <a href="https://github.com/csa7mdm/MusicForge/issues">Issues</a>
 </p>

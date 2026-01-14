@@ -321,7 +321,7 @@ Contributors are recognized in:
 ## 📞 Getting Help
 
 - **Discord** - [Join our community](#)
-- **Discussions** - [GitHub Discussions](https://github.com/your-username/MusicForge/discussions)
+- **Discussions** - [GitHub Discussions](https://github.com/csa7mdm/MusicForge/discussions)
 - **Issues** - For bugs and features
 
 ---
