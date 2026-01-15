@@ -2,11 +2,12 @@
 
 > **LLM-Orchestrated Music Production Platform** - Generate professional-quality music using AI with natural language prompts.
 
+[![CI](https://github.com/csa7mdm/MusicForge/actions/workflows/ci.yml/badge.svg)](https://github.com/csa7mdm/MusicForge/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/csa7mdm/MusicForge/branch/main/graph/badge.svg)](https://codecov.io/gh/csa7mdm/MusicForge)
 [![.NET](https://img.shields.io/badge/.NET-9.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python)](https://python.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)](https://docker.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-42%20Passing-brightgreen)]()
 
 ---
 
